@@ -1,12 +1,16 @@
 var map;
 var infowindow;
 var positionMap;
+var div_map = 'map';
 
 /* inicializando mapa*/
+var o = document.getElementById('inputSearchInicio').value;
+var d = document.getElementById('inputSearchFinal').value;
+var s = document.getElementById('btnTrazar').value;
 function initMap() {
   let santiago = new google.maps.LatLng(-33.4691,-70.6420);
 
-  map = new google.maps.Map(document.getElementById('map'), {
+  map = new google.maps.Map(document.getElementById(div_map), {
     center: santiago,
     zoom: 18
   });
@@ -32,6 +36,7 @@ function initMap() {
   }*/
 
   document.getElementById('btnSearch').addEventListener('click', search);
+  document.getElementById('btnTrazar').addEventListener('click', trazarRuta);
 
   function search() {
     if (navigator.geolocation) {
@@ -48,10 +53,11 @@ function initMap() {
         map.setCenter(pos);
         createMarker(pos, map);
       }, function() {
-        alert('no te encuientro');
+        alert('no te encuentro');
         setDefaultMap(santiago);
       });
     } else {
+      alert("No es posible utilizar geolocation");
       setDefaultMap(santiago);
     }
   }
@@ -65,43 +71,35 @@ function initMap() {
     });
   }
 
-var directionsDisplay = null;
-var directionsService = null;
-var map = null
-var request = {
-        origin: [document.getElementById('inputSearchInicio')],
-        destination: [document.getElementById('inputSearchFinal')],
+
+}
+
+function trazarRuta() {
+
+  var request = {
+        origin: $('#inputSearchInicio').val(),
+        destination: $('#inputSearchFinal').val(),
         travelMode: google.maps.DirectionsTravelMode['DRIVING'],
         unitSystem: google.maps.DirectionsUnitSystem['METRIC'],
         provideRouteAlternatives: false
     };
 
-    console.log(request);
-    // Call to google maps for search a route from 2 points
-var o = document.getElementById('inputSearchInicio').value();
-var d = document.getElementById('inputSearchFinal').value();
-var s = document.getElementById('btnTrazar').value();
-function initMap(o, d, s) {
-    var request = {
-        origin: o,
-        destination: d,
-        travelMode: google.maps.DirectionsTravelMode['DRIVING'],
-        unitSystem: google.maps.DirectionsUnitSystem['METRIC'],
-        provideRouteAlternatives: false
-    };
-
-    map = new google.maps.Map($('#' + s).get(0));
+    // map = new google.maps.Map($('#'+div_map).get(0));
     directionsDisplay = new google.maps.DirectionsRenderer();
     directionsService = new google.maps.DirectionsService();
 
     directionsService.route(request, function (response, status) {
         if (status == google.maps.DirectionsStatus.OK) {
-            directionsDisplay.setMap(map);
-            directionsDisplay.setDirections(response);
+          directionsDisplay.setMap(map);
+          directionsDisplay.setDirections(response);
         } else {
-            document.getElementById(s).innerHTML = "<p style='text-align: center;'>Address not found</p>";      //delete content
+          alert("RUTA NO ENCONTRADA");
+          // document.getElementById("map").innerHTML = "<p style='text-align: center;'>Address not found</p>";      //delete content
         }
     });
 }
 
-}
+    // Call to google maps for search a route from 2 points
+/*function initMap(o, d, s) {
+    
+}*/
