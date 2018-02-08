@@ -7,7 +7,7 @@ var div_map = 'map';
 
 /* inicializando mapa*/
 function initialize() {
-  
+
   /* autocompletado*/
   const input1 = document.getElementById('inputSearchInicio');
   autocomplete = new google.maps.places.Autocomplete(input1);
@@ -118,10 +118,6 @@ function trazarRuta() {
     zoom: 15,
     mapTypeControl: false
   });
-
-  infowindow.setPosition(positionMap);
-  map.setCenter(positionMap);
-  createMarker(positionMap, map);
 
   // render traduce y service obtine
   directionsDisplay = new google.maps.DirectionsRenderer();
