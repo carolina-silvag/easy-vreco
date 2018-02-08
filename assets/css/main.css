@@ -40,4 +40,9 @@ button {
   .versionMobil {
     display: block;
   }
+  button {
+    width: 100%;
+  background-color: #BDD09C;
+  color: #323E1C;
+  }
 }
