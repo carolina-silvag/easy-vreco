@@ -1,35 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">  <title>EASY-VRECO</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">  
+  <title>EASY-VRECO</title>
   <link rel="stylesheet" type="text/css" href="assets/bootstrap-3.3.7-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body class="container">
   <h1 class="text-center">TRAZAR RUTA</h1>
-  <div class="row">
-    <div class="col-xs-3 text-center">
-      <span class="input-group-btn">
-        <button id="btnSearch" class="btn btn-warning" type="button">ENCUENTRAME</button>
-      </span>
+  <div class="row lineSearch">
+    <div class="col-sm-3 text-center versionDesktop">
+      <label for=""></label>
+      <div>
+        <button id="btnSearch" class="btn btn-defaut" type="button">ENCUENTRAME</button>
+      </div>  
     </div>
-    <div class="col-xs-3 text-center">
-      <input id="inputSearchInicio" type="text" class="form-control" placeholder="Search for...">
+    <div class="col-sm-3 col-xs-12 text-center">
+      <label for="">Origen</label>
+      <div>
+        <input id="inputSearchInicio" type="text" class="form-control" placeholder="Ingresa Direccion">  
+      </div>
     </div>
-    <div class="col-xs-3 text-center">
-      <input id="inputSearchFinal" type="text" class="form-control" placeholder="Search for...">
+    <div class="col-sm-3 col-xs-12 text-center">
+      <label for="">Destino</label>
+      <div>
+        <input id="inputSearchFinal" type="text" class="form-control" placeholder="Ingresa Direccion"> 
+      </div>
     </div>
-    <div class="col-xs-3 text-center">
-      <button id="btnTrazar" class="btn btn-warning" type="button">TRAZAR</button>
+    <div class="col-xs-6 text-center versionMobil">
+      <label for=""></label>
+      <div>
+        <button id="btnSearch2" class="btn btn-defaut" type="button">ENCUENTRAME</button>
+      </div>  
+    </div>
+    <div class="col-sm-3 col-xs-6 text-center">
+      <label for=""></label>
+      <div>
+        <button id="btnTrazar" class="btn btn-defaut" type="button">TRAZAR</button>
+      </div>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-12 maps" id="map"></div>  
+    <div id="content">
+    </div>
+  
+    <div class="col-xs-12 maps" id="map">
+      
+    </div>  
   </div>
 
   <script src="assets/js/jquery-3.2.1.min.js"></script>
-  <!-- recuerdas puedes  -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <!-- recuerdas puedes colocar varios parametros  -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmotzv97lj12EST5tN_ihNKJqehR5KM1U&callback=initialize&libraries=places" async defer></script>
+  <script src="assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
   <script src="assets/js/app.js"></script>
 </body>
 </html>

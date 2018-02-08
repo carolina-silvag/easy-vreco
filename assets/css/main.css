@@ -1,4 +1,43 @@
+body {
+  background-color: #3F4534;
+  color: #CFE4AB;
+}
+
+button {
+  background-color: #BDD09C;
+  color: #323E1C;
+}
 #map {
   /*width: 100%;*/
-  height: 90vh;
+  height: 80vh;
+}
+
+.lineSearch {
+  padding: 2% 0 2% 0; 
+}
+
+.map-control {
+  /*background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+  font-family: 'Roboto','sans-serif';*/
+  margin: 10px;
+  
+}
+
+.versionDesktop {
+  display: block;
+}
+
+.versionMobil {
+  display: none;
+}
+
+@media (max-width: 769px) {
+  .versionDesktop {
+    display: none;
+  }
+  .versionMobil {
+    display: block;
+  }
 }
