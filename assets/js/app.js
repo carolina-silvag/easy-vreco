@@ -7,6 +7,7 @@ var div_map = 'map';
 
 /* inicializando mapa*/
 function initialize() {
+
   /* autocompletado*/
   const input1 = document.getElementById('inputSearchInicio');
   autocomplete = new google.maps.places.Autocomplete(input1);
@@ -117,9 +118,6 @@ function trazarRuta() {
     zoom: 15,
     mapTypeControl: false
   });
-  infowindow.setPosition(positionMap);
-  map.setCenter(positionMap);
-  createMarker(positionMap, map);
 
   // render traduce y service obtine
   directionsDisplay = new google.maps.DirectionsRenderer();
@@ -143,18 +141,8 @@ function trazarRuta() {
   typeMap();
 }
 
-/*function changeMenuByScroll() {
-    if ($(this).scrollLeft() > 769) {
-      $('.versionDesktop').css({'display': 'block'});
-      $('.versionMobil').css({'display': 'none'});
-      
-    } else {
-      $('.versionDesktop').css({'display': 'none'});
-      $('.versionMobil').css({'display': 'block'});
-    }
-  }*/
 
-/*estilos*/
+/*estilos de mapa*/
 
 var styles = {
   default: null,
